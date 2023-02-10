@@ -1,0 +1,47 @@
+{%include "base.html" %}
+{%block content%}
+<html lang="en">
+  <head>
+    <title></title>
+
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sign-in.css')}}">
+
+  </head>
+  <body class="text-center">
+  
+    
+<main class="form-signin w-100 m-auto">
+  <form method="post">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification">
+                {{ messages[0] }}. Go to <a href="/login">login page</a>
+            </div>
+        {% endif %}
+        {% endwith %}
+    <h1>Sign up</h1>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" name="Nom" placeholder="Votre Nom" required>
+      <label for="floatingInput">Nom d'utilisateur</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" name="Prenom" placeholder="Votre Prenom" required>
+      <label for="floatingInput">Prenom d'utilisateur</label>
+    </div>
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" name="Mail" placeholder="name@example.com" required>
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" name="Password" placeholder="Password" required>
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Send</button>
+  </form>
+</main>
+    
+  </body>
+</html>
+{%endblock%}
